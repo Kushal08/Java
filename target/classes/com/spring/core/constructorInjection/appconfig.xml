@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+	<bean class="com.spring.core.constructorInjection.Certi" name="certiRef">
+		<constructor-arg value="Certificate"/>	
+	</bean>    
+
+ 	<bean class="com.spring.core.constructorInjection.Person" name="person">	 
+		<!-- constructor injection, need to define in order in which defined in constructor -->
+		<!-- by default all are considered string, but it matches with correct type, if more constructor are defined, then need to mention type -->
+		<constructor-arg value="Kushal"/>
+		<constructor-arg value="102" type="int"/>
+		<constructor-arg ref="certiRef"/>
+		<constructor-arg>
+			<list>
+				<value> Duryodhana </value>
+				<value> Ravana </value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+		
+	<!-- c-schema -->
+	<bean class="com.spring.core.constructorInjection.Certi" name="certiRef1" c:name="Cerificate"/>
+ 	<bean class="com.spring.core.constructorInjection.Person" name="person2" c:name="Kushal" c:personId="101" c:ref="certiRef1">
+		<constructor-arg>
+			<list>
+				<value>Ram</value>
+				<value>Lakshman</value>
+			</list>
+		</constructor-arg>
+	</bean>	 
+	
+	<!-- Ambiguous Call by default it takes argument as String, if String constructor is not there, then constructor in order are executed-->
+	<bean class="com.spring.core.constructorInjection.AmbigiousCall" name="add">
+		<constructor-arg value="12" type="double" index="1"/> <!-- now 12 is b -->
+		<constructor-arg value="34" type="double" index="0"/> <!-- now 34 is a -->
+	</bean>
+
+
+</beans>

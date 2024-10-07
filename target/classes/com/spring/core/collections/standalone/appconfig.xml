@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util.xsd">
+    
+    <!--Standalone list-->
+    <util:list list-class="java.util.LinkedList" id="mylist">
+		<value>Aman</value>
+		<value>Raman</value>
+		<value>Ankit</value>
+		<value>Rohit</value>
+	</util:list>
+
+    <!--Standalone list-->
+    <util:map map-class="java.util.HashMap" id="mymap">
+		<entry key="CSE" value="200000"/>
+		<entry key="ESE" value="100000"/>
+	</util:map> 
+
+    <!--Standalone Properties, No need of passing class here, as Properties itself is class -->
+    <util:properties id="myprops">
+		<prop key="id1">Value1</prop>
+		<prop key="id2">Value2</prop>
+		<prop key="id3">Value3</prop>
+	</util:properties> 
+		 
+	<bean class="com.spring.core.collections.standalone.Emp" name="emp">
+      <!--<property name="friends">
+		<ref bean="mylist"/>	  
+	  </property>-->
+	 
+	  <property name="friends" ref="mylist"/>
+	  <property name="fees" ref="mymap"/>
+	  <property name="props" ref="myprops"/>
+
+  </bean>
+
+	
+		
+</beans>

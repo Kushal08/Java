@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- Using autowiring using setter injection-->
+    
+    <bean class="com.spring.core.autowiring.Address" name="address" p:street="Mahaveer Colony" p:city="Reodar"></bean>
+
+    <!--byName: compare the name of the ref variable in config file-->
+    <bean class="com.spring.core.autowiring.Student" name="student1" autowire="byName"/>
+    <!--byType: compare the type of the ref variable, if any bean with Address type exists in config file-->
+    <bean class="com.spring.core.autowiring.Student" name="student2" autowire="byType"/>
+
+	
+    <!-- Using autowiring using constructor injection-->
+    <bean class="com.spring.core.autowiring.Student" name="student3" autowire="constructor"/>
+
+	
+</beans>

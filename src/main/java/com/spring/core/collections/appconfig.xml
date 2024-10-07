@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- When setting values using property, setter inejection would be used.-->
+ 	<bean class="com.spring.core.collections.Emp" id="emp1" >
+		 <property name="name" value="Kushal"/>	 
+		 <!-- collection type list -->
+		 <!-- if there is one element in list, then no need of list tag, it would automatically picks it up-->
+		 <property name="phones">
+			 <list>
+				 <value>123456789</value>
+				 <value>987654321</value>
+				 <value>123459876</value>
+				 <null/> <!-- to have null values -->
+			 </list>
+		 </property>
+		 
+		 <!-- collection type set -->
+		 <property name="address">
+			 <set>
+				 <value>Jodhpur</value>
+				 <value>Delhi</value>
+				 <value>Jaipur</value>
+			 </set>
+		 </property>
+		 
+		 <!-- collection type map -->
+		 <property name="courses">
+			 <map>
+				 <entry key="CSE" value="CSE Course"/>
+				 <entry key="ESE" value="ESE Course"/>
+			 </map>
+		 </property>
+		 
+		 <!-- collection type Properties -->
+		 <property name="props">
+			 <props>
+				 <prop key="name">Kushal</prop>
+				 <prop key="college">NIT Surat</prop>
+				 <prop key="company">GE</prop>
+			 </props>
+		 </property>
+	</bean>
+
+	
+		
+</beans>

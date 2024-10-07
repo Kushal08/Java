@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- When setting values using property, setter inejection would be used.-->
+ 	<bean class="com.spring.core.setterInjection.Student" name="student1">	 
+		 <!--<property name="studentId">
+			 <value>102</value>
+		 </property>
+		 <property name="sName">
+			 <value>Kushal</value>
+		 </property>
+		 <property name="sAddress">
+			 <value>Banglore</value>
+		 </property>-->
+		 
+		<!-- value as attribute-->
+		<property name="studentId" value="101"/>
+		<property name="sName" value="Kushal"/>
+		<property name="sAddress" value="Benguluru"/>
+		 
+	</bean>
+	
+	<!-- using p-scehma -->
+	<bean class="com.spring.core.setterInjection.Student" name="student2" p:studentId="103" p:sName="Ram Singh" p:sAddress="Ayodhya"/>
+	
+	
+		
+</beans>
